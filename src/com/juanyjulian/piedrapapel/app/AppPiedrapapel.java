@@ -1,17 +1,12 @@
-package com.juan.piedrapapel.app;
+package com.juanyjulian.piedrapapel.app;
 
-import com.juan.calculadora.app.AppCalculadora;
-import com.juan.calculadora.dominio.calculadora;
-import com.juan.piedrapapel.dominio.juego;
+import com.juanyjulian.calculadora.app.AppCalculadora;
+import com.juanyjulian.calculadora.dominio.calculadora;
+import com.juanyjulian.piedrapapel.dominio.juego;
 
 import javax.swing.*;
 
-import static com.juan.piedrapapel.dominio.juego.getVictoriasUser;
-
 public class AppPiedrapapel {
-    private static final String verInstrucciones = "Verinstrucciones";
-    private static final String jugar = "Verinstrucciones";
-    private static final String verResultados = "Verinstrucciones";
     private static final int verInstruccionesInt = 0;
     private static final int jugarInt = 1;
     private static final int verResultadosInt = 2;

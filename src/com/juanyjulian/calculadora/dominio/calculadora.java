@@ -1,4 +1,4 @@
-package com.juan.calculadora.dominio;
+package com.juanyjulian.calculadora.dominio;
 
 public class calculadora {
     public static double sumar(double a, double b, boolean redondear) {

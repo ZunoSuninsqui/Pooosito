@@ -1,4 +1,4 @@
-package com.juan.piedrapapel.dominio;
+package com.juanyjulian.piedrapapel.dominio;
 
 public class juego {
     private static int empates = 0;

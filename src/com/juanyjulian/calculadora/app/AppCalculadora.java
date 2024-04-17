@@ -1,5 +1,5 @@
-package com.juan.calculadora.app;
-import com.juan.calculadora.dominio.calculadora;
+package com.juanyjulian.calculadora.app;
+import com.juanyjulian.calculadora.dominio.calculadora;
 
 import javax.swing.*;
 import java.util.ArrayList;
