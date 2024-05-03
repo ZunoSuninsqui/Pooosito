@@ -5,12 +5,12 @@ import java.time.LocalDate;
 public class FacturaSinIVA extends Factura{
 
 
-    public FacturaSinIVA(long valor, String cliente, LocalDate fecha) {
+    public FacturaSinIVA(double valor, String cliente, LocalDate fecha) {
         super(valor, cliente, fecha);
+        this.valor = valor;
     }
-
     @Override
-    protected long calcularValor() {
-        return valor;
+    protected double calcularValor() {
+        return this.valor;
     }
 }

@@ -4,8 +4,9 @@ import java.time.LocalDate;
 
 public class FacturaConIVA extends Factura{
     private double porcIVA;
-    protected FacturaConIVA(long valor, String cliente, LocalDate fecha, double porcIva) {
+    protected FacturaConIVA(double valor, String cliente, LocalDate fecha, double porcIva) {
         super(valor, cliente, fecha);
+        this.valor = valor;
         this.porcIVA = porcIva;
     }
 
@@ -13,7 +14,7 @@ public class FacturaConIVA extends Factura{
         return (long) (valor * porcIVA);
     }
     @Override
-    protected long calcularValor() {
+    protected double calcularValor() {
         return valor + calcularIVA();
     }
 
