@@ -14,10 +14,9 @@ public class FacturaVencida extends Factura{
     }
 
     public int getDiasVencidos(){
-        System.out.println((int) ChronoUnit.DAYS.between(LocalDate.now(), fecha));
-        return (int) ChronoUnit.DAYS.between(LocalDate.now(),fecha);}
+        return (int) ChronoUnit.DAYS.between(fecha,LocalDate.now());}
     public long calcularPrecioPorVencimiento(){
-        return (long) valor_dia_vencido *getDiasVencidos();
+        return (long) valor_dia_vencido *(getDiasVencidos()-30);
     }
     @Override
     protected double calcularValor() {

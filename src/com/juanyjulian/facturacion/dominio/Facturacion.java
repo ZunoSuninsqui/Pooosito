@@ -22,30 +22,34 @@ public class Facturacion {
         Factura factura = null;
 
         if (valor < 1000000) {
-            if (cliente.contains("A")){
-                if (comparacionDias(fecha)){
-                    factura = new FacturaVencida(valor,cliente, fecha);
-                    System.out.println(factura.valor+":::Factura vencida");
-                }else {
+            if (comparacionDias(fecha)){
+                if (cliente.contains("A")){
                     factura = new FacturaConDescuento(valor, cliente, fecha, .20);
                     System.out.println(factura.valor+":::Factura con descuento");
+
+                }else {
+                    factura = new FacturaVencida(valor,cliente, fecha);
+                    System.out.println(factura.valor+":::Factura vencida");
+
                 }
             } else{
                 factura = new FacturaSinIVA(valor, cliente, fecha);
                 System.out.println(factura.valor+":::Factura sin iva");
             }
         } else {
-            if (cliente.contains("A")){
-                if (comparacionDias(fecha)){
-                    factura = new FacturaVencida(valor,cliente, fecha);
-                    System.out.println(factura.valor+":::Factura vencida");
-                }else {
+            if (comparacionDias(fecha)){
+                if (cliente.contains("A")){
                     factura = new FacturaConDescuento(valor, cliente, fecha, .20);
                     System.out.println(factura.valor+":::Factura con descuento");
+
+                }else {
+                    factura = new FacturaVencida(valor,cliente, fecha);
+                    System.out.println(factura.valor+":::Factura vencida");
+
                 }
             } else{
-                factura = new FacturaConIVA(valor, cliente, fecha,0.19);
-                System.out.println(factura.valor+":::Factura con iva");
+                factura = new FacturaConIVA(valor, cliente, fecha,0.18);
+                System.out.println(factura.valor+":::Factura sin iva");
             }
         }
         facturas.add(factura);
@@ -73,11 +77,12 @@ public class Facturacion {
                 .collect(Collectors.toList());
     }
     public boolean comparacionDias(LocalDate fecha){
-        if (30 > (int) ChronoUnit.DAYS.between(LocalDate.now(), fecha)) {
-            System.out.println((int) ChronoUnit.DAYS.between(LocalDate.now(), fecha));
+        if (30 > (int) ChronoUnit.DAYS.between(fecha,LocalDate.now() )) {
+            System.out.println((int) ChronoUnit.DAYS.between(fecha,LocalDate.now())-30);
             System.out.println("Falso");
             return false;
         }else{
+            System.out.println((int) ChronoUnit.DAYS.between(fecha,LocalDate.now())-30);
             System.out.println("Verdadero");
             return true;
         }

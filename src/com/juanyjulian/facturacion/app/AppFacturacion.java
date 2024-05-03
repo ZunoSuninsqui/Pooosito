@@ -12,7 +12,7 @@ public class AppFacturacion {
         facturacion.generarFactura("Robin",1500000, LocalDate.of(2024, 5, 1));
         facturacion.generarFactura("Robin",500000, LocalDate.of(2024, 5, 1));
         facturacion.generarFactura("Corlos",500000,LocalDate.of(2024,2,1 ));
-        facturacion.generarFactura("Corlos",1500000,LocalDate.of(2024,2,1 ));// 26-04-2024 _ 26-05-2024
+        facturacion.generarFactura("Corlos",1500000,LocalDate.of(2024,4,1 ));// 26-04-2024 _ 26-05-2024
 
         System.out.println(facturacion.getFacturasValor()+"\n");
         System.out.println(facturacion.getTotalFacturacion()+"\n\n");
