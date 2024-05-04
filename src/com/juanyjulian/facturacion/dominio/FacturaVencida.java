@@ -8,11 +8,8 @@ public class FacturaVencida extends Factura{
 
     public FacturaVencida(double valor, String cliente, LocalDate fecha) {
         super(valor, cliente, fecha);
-        this.valor = valor;
-        this.fecha = fecha;
-        this.cliente = cliente;
+        System.out.println(valor);
     }
-
     public int getDiasVencidos(){
         return (int) ChronoUnit.DAYS.between(fecha,LocalDate.now());}
     public long calcularPrecioPorVencimiento(){

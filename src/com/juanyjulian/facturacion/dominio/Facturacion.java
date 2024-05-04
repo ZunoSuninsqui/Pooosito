@@ -18,7 +18,7 @@ public class Facturacion {
         this.facturas = new ArrayList<>();
     }
 
-    public void generarFactura(String cliente, double valor, LocalDate fecha) {
+    public void generarFactura(String cliente, double valor, LocalDate fecha,String medioPago) {
         Factura factura = null;
 
         if (valor < 1000000) {

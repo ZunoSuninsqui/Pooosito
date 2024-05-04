@@ -8,6 +8,9 @@ public abstract class Factura {
     protected LocalDate fecha;
 
     public Factura(double valor, String cliente, LocalDate fecha) {
+        this.valor =valor;
+        this.cliente = cliente;
+        this.fecha = fecha;
     }
 
     protected abstract double calcularValor();

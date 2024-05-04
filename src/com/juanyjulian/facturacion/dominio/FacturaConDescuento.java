@@ -12,7 +12,7 @@ public class FacturaConDescuento extends FacturaSinIVA {
     }
 
 
-    public double calcularDescuento(){ return  ((double) valor * porcDescuento); }
+    public double calcularDescuento(){ return  valor * porcDescuento; }
     @Override
     protected double calcularValor() {
         return  valor + calcularDescuento();
