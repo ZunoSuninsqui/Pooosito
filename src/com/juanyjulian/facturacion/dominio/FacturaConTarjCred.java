@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class FacturaConTarjCred extends Factura{
 
 
-    public FacturaConTarjCred(double valor, String cliente, LocalDate fecha) {
-        super(valor, cliente, fecha);
+    public FacturaConTarjCred(double valor, String cliente, LocalDate fecha,String medioPago) {
+        super(valor, cliente, fecha,medioPago);
     }
 
     @Override

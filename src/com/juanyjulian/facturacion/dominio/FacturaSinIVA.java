@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class FacturaSinIVA extends Factura{
 
 
-    public FacturaSinIVA(double valor, String cliente, LocalDate fecha) {
-        super(valor, cliente, fecha);
+    public FacturaSinIVA(double valor, String cliente, LocalDate fecha, String mediodepago) {
+        super(valor, cliente, fecha,mediodepago);
         this.valor = valor;
     }
     @Override

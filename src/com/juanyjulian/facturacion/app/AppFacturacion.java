@@ -7,14 +7,12 @@ import java.time.LocalDate;
 public class AppFacturacion {
     public static void main(String[] args) {
         Facturacion facturacion = new Facturacion();
-        facturacion.generarFactura("Alejo",500000, LocalDate.of(2024, 5, 1));
-        facturacion.generarFactura("Alejo",1500000, LocalDate.of(2024, 7, 1));
-        facturacion.generarFactura("Robin",1500000, LocalDate.of(2024, 5, 1));
-        facturacion.generarFactura("Robin",500000, LocalDate.of(2024, 5, 1));
-        facturacion.generarFactura("Corlos",500000,LocalDate.of(2024,2,1 ));
-        facturacion.generarFactura("Corlos",1500000,LocalDate.of(2024,4,1 ));// 26-04-2024 _ 26-05-2024
-
-        System.out.println();
+        facturacion.generarFactura("ArePeRa",500000, LocalDate.of(2024, 5, 1),"Tarjeta");
+        facturacion.generarFactura("Alejo",1500000, LocalDate.of(2024, 7, 1),"Efectivo");
+        facturacion.generarFactura("Robin",1500000, LocalDate.of(2024, 5, 1),"Efectivo");
+        facturacion.generarFactura("opontootnopo",500000, LocalDate.of(2023, 10, 31),"Efectivo");
+        facturacion.generarFactura("Corlos",500000,LocalDate.of(2024,2,1 ),"Tarjeta");
+        facturacion.generarFactura("Corlos",1500000,LocalDate.of(2024,4,1 ),"Efectivo");// 26-04-2024 _ 26-05-2024
 
 
         System.out.println(facturacion.getFacturasValor()+"\n");

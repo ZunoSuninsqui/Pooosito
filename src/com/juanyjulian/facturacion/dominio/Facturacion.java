@@ -20,35 +20,41 @@ public class Facturacion {
 
     public void generarFactura(String cliente, double valor, LocalDate fecha,String medioPago) {
         Factura factura = null;
-
+        LocalDate halloween = LocalDate.ofYearDay(LocalDate.now().getYear(), 304);
         if (valor < 1000000) {
-            if (comparacionDias(fecha)){
-                if (cliente.contains("A")){
-                    factura = new FacturaConDescuento(valor, cliente, fecha, .20);
+            if (Palindroma(cliente)){
+                factura = new FacturaPalindroma(valor, cliente, fecha, medioPago);
+                System.out.println(factura.cliente + ":::" + factura);
+            }else if (comparacionDias(fecha)){
+                if (fecha == halloween){
+                    factura =new FacturaHalloween(valor, cliente, fecha, medioPago);
+                }else if (cliente.contains("A")){
+                    factura = new FacturaConDescuento(valor, cliente, fecha, .20,medioPago);
                     System.out.println(factura.valor+":::Factura con descuento");
 
                 }else {
-                    factura = new FacturaVencida(valor,cliente, fecha);
+                    factura = new FacturaVencida(valor,cliente, fecha,medioPago);
                     System.out.println(factura.valor+":::Factura vencida");
 
                 }
             } else{
-                factura = new FacturaSinIVA(valor, cliente, fecha);
+                factura = new FacturaSinIVA(valor, cliente, fecha,medioPago);
                 System.out.println(factura.valor+":::Factura sin iva");
             }
         } else {
             if (comparacionDias(fecha)){
                 if (cliente.contains("A")){
-                    factura = new FacturaConDescuento(valor, cliente, fecha, .20);
+                    factura = new FacturaConDescuento(valor, cliente, fecha, .20,medioPago);
                     System.out.println(factura.valor+":::Factura con descuento");
 
                 }else {
-                    factura = new FacturaVencida(valor,cliente, fecha);
+                    factura = new FacturaVencida(valor,cliente, fecha,medioPago);
                     System.out.println(factura.valor+":::Factura vencida");
 
                 }
-            } else{
-                factura = new FacturaConIVA(valor, cliente, fecha,0.18);
+            } else if(fecha==halloween){}
+            else{
+                factura = new FacturaConIVA(valor, cliente, fecha,0.18,medioPago);
                 System.out.println(factura.valor+":::Factura sin iva");
             }
         }
@@ -86,6 +92,19 @@ public class Facturacion {
             System.out.println("Verdadero");
             return true;
         }
+    }protected boolean Palindroma(String str) {
+        str = str.toLowerCase();
+        int left = 0 ;
+        int right = str.length()-1;
+        while (left<(right/2 )){
+            if (str.charAt(left)!= str.charAt(right-left)){
+                return false;
+            }
+            left++;
+            // Arepera impares
+            // opontootnopo pares
+        }
+        return true;
     }
 
 

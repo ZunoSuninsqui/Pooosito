@@ -6,8 +6,8 @@ import java.time.temporal.ChronoUnit;
 public class FacturaVencida extends Factura{
     public int valor_dia_vencido = 10_000;
 
-    public FacturaVencida(double valor, String cliente, LocalDate fecha) {
-        super(valor, cliente, fecha);
+    public FacturaVencida(double valor, String cliente, LocalDate fecha, String medioPago) {
+        super(valor, cliente, fecha,medioPago);
         System.out.println(valor);
     }
     public int getDiasVencidos(){

@@ -3,9 +3,10 @@ package com.juanyjulian.facturacion.dominio;
 import java.time.LocalDate;
 
 public class FacturaPalindroma extends Factura{
-    public FacturaPalindroma(double valor, String cliente, LocalDate fecha) {
-        super(valor, cliente, fecha);
+    public FacturaPalindroma(double valor, String cliente, LocalDate fecha,String medioPago) {
+        super(valor, cliente, fecha, medioPago);
     }
+
 
     @Override
     protected double calcularValor() {

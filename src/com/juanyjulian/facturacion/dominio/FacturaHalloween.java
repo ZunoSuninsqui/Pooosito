@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class FacturaHalloween extends Factura{
 
-    public FacturaHalloween(double valor, String cliente, LocalDate fecha) {
-        super(valor, cliente, fecha);
+    public FacturaHalloween(double valor, String cliente, LocalDate fecha, String medioPago) {
+        super(valor, cliente, fecha,medioPago);
     }
 
     @Override
@@ -20,4 +20,5 @@ public class FacturaHalloween extends Factura{
                 ", fecha=" + fecha +
                 '}';
     }
+
 }
