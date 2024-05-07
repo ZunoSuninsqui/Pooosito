@@ -9,6 +9,7 @@ public class FacturaConTarjCred extends Factura{
         super(valor, cliente, fecha,medioPago);
     }
 
+
     @Override
     protected double calcularValor() {
         return 0;
