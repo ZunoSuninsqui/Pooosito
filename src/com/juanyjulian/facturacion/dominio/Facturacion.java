@@ -6,13 +6,11 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static java.time.LocalDate.*;
 
 public class Facturacion {
-    private List<Factura> facturas;
+    private final List<Factura> facturas;
     LocalDate halloween = LocalDate.ofYearDay(LocalDate.now().getYear(), 304);
 
     public Facturacion() {
@@ -20,47 +18,29 @@ public class Facturacion {
     }
 
     public void generarFactura(String cliente, double valor, LocalDate fecha,String medioPago) {
-        Factura factura = null;
-        if (valor < 1000000) {
-            if (medioPago.equalsIgnoreCase("tarjeta")){
-                factura = new FacturaConTarjCred(valor,cliente, fecha, medioPago);
-                System.out.println(factura.cliente + "::: factura con tarjeta");
-            }else if (Palindroma(cliente)){
-                factura = new FacturaPalindroma(valor, cliente, fecha, medioPago);
-                System.out.println(factura.cliente + ":::" + factura);
-            }else if (comparacionDias(fecha)){
-                if (fecha == halloween){
-                    factura =new FacturaHalloween(valor, cliente, fecha, medioPago);
-                }else if (cliente.contains("A")){
-                    factura = new FacturaConDescuento(valor, cliente, fecha, .20,medioPago);
-                    System.out.println(factura.valor+":::Factura con descuento");
-
-                }else {
-                    factura = new FacturaVencida(valor,cliente, fecha,medioPago);
-                    System.out.println(factura.valor+":::Factura vencida");
-
-                }
-            } else{
-                factura = new FacturaSinIVA(valor, cliente, fecha,medioPago);
-                System.out.println(factura.valor+":::Factura sin iva");
-            }
-        } else {
-            if (comparacionDias(fecha)) {
-                if (cliente.contains("A")) {
-                    factura = new FacturaConDescuento(valor, cliente, fecha, .20, medioPago);
-                    System.out.println(factura.valor + ":::Factura con descuento");
-
-                } else {
-                    factura = new FacturaVencida(valor, cliente, fecha, medioPago);
-                    System.out.println(factura.valor + ":::Factura vencida");
-
-                }
-            } else if (fecha == halloween) {
-            } else {
-                factura = new FacturaConIVA(valor, cliente, fecha, 0.18, medioPago);
-                System.out.println(factura.valor + ":::Factura sin iva");
-                System.out.println(factura.calcularValor());
-            }
+        Factura factura;
+        if (comparacionDias(fecha)){
+            factura = new FacturaVencida(valor,cliente, fecha,medioPago);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else if (medioPago.equalsIgnoreCase("tarjeta")){
+            factura = new FacturaConTarjCred(valor,cliente, fecha, medioPago,0.3);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else if(fecha == halloween){
+            factura =new FacturaHalloween(valor, cliente, fecha, medioPago);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else if(Palindroma(cliente)){
+            factura = new FacturaPalindroma(valor, cliente, fecha, medioPago,0.20);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else if (cliente.contains("a")){
+            factura = new FacturaConDescuento(valor, cliente, fecha, medioPago,.20);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else if(valor<1_000_000){
+            factura = new FacturaSinIVA(valor, cliente, fecha,medioPago);
+            System.out.println(factura.cliente + ":::" + factura);
+        }else{
+            factura = new FacturaConIVA(valor, cliente, fecha, medioPago, 0.18);
+            System.out.println(factura.cliente + ":::" + factura);
+            System.out.println(factura.calcularValor());
         }
         facturas.add(factura);
     }

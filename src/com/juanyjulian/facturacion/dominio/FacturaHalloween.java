@@ -7,10 +7,11 @@ public class FacturaHalloween extends Factura{
     public FacturaHalloween(double valor, String cliente, LocalDate fecha, String medioPago) {
         super(valor, cliente, fecha,medioPago);
     }
+    protected double descuento(){return valor * 0.15;}
 
     @Override
     protected double calcularValor() {
-        return 0;
+        return valor-descuento();
     }
     @Override
     public String toString() {
