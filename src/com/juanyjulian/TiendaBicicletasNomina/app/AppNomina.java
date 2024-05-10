@@ -14,6 +14,8 @@ public class AppNomina {
         System.out.println("\n");
         nomina.listarFreelancers();
         System.out.println("\n");
-        nomina.listarVendedores();
+        nomina.listaPromotores();
+        System.out.println("\n");
+        //nomina.listarVendedores();
     }
 }
