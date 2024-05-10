@@ -21,17 +21,26 @@ public class Nomina {
         empleados.add(Gustavo);
     }
 
-    public List<Empleado> getEmpleados() {
-        return empleados;
-    }
-
     public void calcularNomina(){
-
+        long totalNomina = 0;
+        for (Empleado empleado : empleados){
+            totalNomina+= empleado.calcularSalario();
+        }
+        System.out.println("La nomina es : "+totalNomina);
     }
     public void listarDirectos(){
-
+        for(Empleado empleado : empleados){
+            if ((empleado instanceof Directo)&&!(empleado instanceof Vendedor)) System.out.println("Nombre del empleado Directo : "+empleado.getNombre()+" Salario del empleado Directo: "+empleado.calcularSalario());
+        }
     }
     public void listarFreelancers(){
-
+        for(Empleado empleado : empleados){
+            if (empleado instanceof Freelance) System.out.println("Nombre del empleado Freelance : "+empleado.getNombre()+" Salario del empleado Freelance: "+empleado.calcularSalario());
+        }
+    }
+    public void listarVendedores(){
+        for(Empleado empleado : empleados){
+            if ((empleado instanceof Vendedor)) System.out.println("Nombre del empleado Vendedor : "+empleado.getNombre()+" Salario del empleado Vendedor: "+empleado.calcularSalario());
+        }
     }
 }
