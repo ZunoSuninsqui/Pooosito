@@ -15,11 +15,11 @@ public class Directo extends Empleado{
         return (long)(salario*0.065);
     }
     public long calcularAporte(){
-        return 0;
+        return calcularPension()+calcularSalud();
     }
     public long getSalario(){return this.salario;}
     @Override
     protected long calcularSalario() {
-        return salario -calcularSalud()-calcularPension();
+        return salario -calcularAporte();
     }
 }
