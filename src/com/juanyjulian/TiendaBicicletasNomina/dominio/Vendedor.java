@@ -6,18 +6,11 @@ public class Vendedor extends Directo implements Comisioneable{
         super(nombre,salario);
         this.ventasDelMes = ventasDelMes;
     }
-
     @Override
-    protected long calcularSalario() {
-        return getSalario()+calcularComision();
-    }
-
-
-    @Override
-    public long calcularComision() {
-
-        if (calcularSalario()<1_500_000) return (long)(ventasDelMes*0.045);
+    public long calcularComision(){
+        if (getSalario()<=1_500_000) return (long)(ventasDelMes*0.045);
         else return (long)(ventasDelMes*0.035);
-
     }
+    @Override
+    protected long calcularSalario() {return getSalario()+calcularComision();}
 }
