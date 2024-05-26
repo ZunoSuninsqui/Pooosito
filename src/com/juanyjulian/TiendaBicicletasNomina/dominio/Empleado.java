@@ -6,6 +6,6 @@ public abstract class Empleado {
     public Empleado(String nombre){
         this.nombre = nombre;
     }
-    public String getNombre(){return this.nombre;}
+    protected String getNombre(){return this.nombre;}
     protected abstract long calcularSalario();
 }

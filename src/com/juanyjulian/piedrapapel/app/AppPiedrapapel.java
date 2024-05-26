@@ -18,13 +18,14 @@ public class AppPiedrapapel {
     public static void main(String[] args) {
         while (true){
             int opcion = JOptionPane.showOptionDialog(null, "Bienvenid@!\n¿Qué quieres hacer?",
-                    "POO - Piedra, Papel o Tijera", 0, JOptionPane.QUESTION_MESSAGE, ICONO,
+                    "POO - Piedra, Papel, Tijera o Pistola", 0, JOptionPane.QUESTION_MESSAGE, ICONO,
                     param, null);
             if (opcion == verInstruccionesInt){
                 AppCalculadora.mostrarMensaje("Bienvenido al juego de Piedra, Papel o Tijeras. Las reglas son simples:\n\n" +
                                 "1. Piedra aplasta a Tijeras (Piedra gana a Tijeras).\n" +
                                 "2. Papel cubre a Piedra (Papel gana a Piedra).\n" +
-                                "3. Tijeras cortan Papel (Tijeras ganan a Papel).\n\n" +
+                                "3. Tijeras cortan Papel (Tijeras ganan a Papel).\n" +
+                                "4. Pistola gana a tijera y papel pero pierde a piedra\n\n "+
                                 "En cada ronda, selecciona una de las tres opciones: Piedra, Papel o Tijeras.\n" +
                                 "El juego continuará hasta que decidas cerrar la ventana o presionar 'Cancelar'.\n\n" +
                                 "¡Que te diviertas y buena suerte!", titulo
@@ -34,7 +35,7 @@ public class AppPiedrapapel {
                         "¿Que quieres hacer?",
                         titulo,
                         JOptionPane.QUESTION_MESSAGE,
-                        ICONO, new Object[]{"Piedra", "Papel", "Tijeras"},
+                        ICONO, new Object[]{"Piedra", "Papel", "Tijeras","Pistola"},
                         null);
                 AppCalculadora.mostrarMensaje(juego.ganador(seleccion),titulo);
 
