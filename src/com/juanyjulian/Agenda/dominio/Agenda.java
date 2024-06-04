@@ -1,11 +1,11 @@
-package com.alejandro.taller.punto1.dominio;
+package com.juanyjulian.Agenda.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import com.alejandro.taller.punto1.dominio.Contacto;
 public class Agenda {
     public static final int CAPACIDAD = 50;
-    private List<Contacto> contactos;
+    private List<com.alejandro.taller.punto1.dominio.Contacto> contactos;
 
     public Agenda() {
         this.contactos = new ArrayList<>();
